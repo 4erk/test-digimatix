@@ -17,6 +17,9 @@ class BucketController extends Controller
         if (!$product) {
             return false;
         }
+        if (!$product->count) {
+            return false;
+        }
         $bucket = new Bucket([
             'session_id' => Yii::$app->session->id,
             'product_id' => $product->id,
